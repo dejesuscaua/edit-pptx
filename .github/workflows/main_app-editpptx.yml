@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read # This is required for actions/checkout
+      contents: read #This is required for actions/checkout
 
     steps:
       - uses: actions/checkout@v4
@@ -30,13 +30,7 @@ jobs:
           source venv/bin/activate
       
       - name: Install dependencies
-        run: |
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          else
-            echo "Arquivo requirements.txt não encontrado! Adicione esse arquivo ao repositório."
-            exit 1
-          fi
+        run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
@@ -64,10 +58,11 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
+      
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
           app-name: 'app-editpptx'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AC268339A9DB432C885BE49CF87F637C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7BF09F5202894AB383AA5400D4BC6A7C }}
