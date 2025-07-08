@@ -74,7 +74,7 @@ async def editar_pptx_upload(
         # Nome do arquivo final
         nome_cliente = substituicoes.get("nome_cliente", "Cliente")
         nome_cliente_sanitizado = "".join(c for c in nome_cliente if c.isalnum() or c in (" ", "_", "-")).strip()
-        nome_final = f"Proposta Comercial {nome_cliente_sanitizado}.pptx"
+        nome_final = f"Proposta Orientativa {nome_cliente_sanitizado}.pptx"
 
         # Limpeza pós-resposta
         background_tasks.add_task(remover_arquivos, temp_input_path, temp_output_path)
