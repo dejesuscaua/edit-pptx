@@ -3,6 +3,7 @@
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
 name: Build and deploy Python app to Azure Web App - app-editpptx
+
 on:
   push:
     branches:
@@ -64,4 +65,4 @@ jobs:
         with:
           app-name: 'app-editpptx'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7BF09F5202894AB383AA5400D4BC6A7C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3CC3F007FF9D4709A5D9099F526C0E1F }}
